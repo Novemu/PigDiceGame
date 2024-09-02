@@ -107,6 +107,16 @@ body {
   top: 23em;
 }
 
+.dice {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  top: 15em;
+  height: 120px;
+  width: 120px;
+  box-shadow: 1px 1px 1px #fff;
+}
+
 .player--active {
   background-color: #ff715b;
   border: 1px solid #ff715b;
