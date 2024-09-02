@@ -20,6 +20,8 @@ body {
 }
 
 .player-container {
+  background-color: #ff715b88;
+
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
@@ -33,7 +35,6 @@ body {
 }
 
 .player--1 {
-  background-color: #ff715b88;
   border: none;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -120,4 +121,8 @@ body {
 .player--active {
   background-color: #ff715b;
   border: 1px solid #ff715b;
+}
+
+.dice--hidden {
+  display: none;
 }
