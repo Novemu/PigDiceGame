@@ -46,3 +46,13 @@ rollDice.addEventListener("click", function () {
     }
   }
 });
+
+hold.addEventListener("click", function(){
+  if(playing === true){
+    scores[activePlayer] += currentScore;
+    currentScore = 0;
+    document.querySelector(`.current--${activePlayer}`).textContent = `${currentScore}`; 
+    document.querySelector(`.score--${activePlayer}`).textContent = scores[activePlayer];
+    swapActivePlayer();
+  }
+});
