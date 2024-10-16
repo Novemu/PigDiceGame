@@ -123,6 +123,33 @@ body {
   border: 1px solid #ff715b;
 }
 
+
+.player--winner--0 {
+  background-color: #2A1A1F;
+  border: 1px solid #ffe066;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.player--winner--1 {
+  background-color: #2A1A1F;
+  border: 1px solid #ffe066;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 5px 5px 5px #495057;
+}
+
+.player--winner > * {
+  background-color: #2A1A1F;
+  border: 1px solid #ffe066;
+  border-radius: 50px;
+  padding: 0.5rem 2.3rem;
+}
+
+.player--winner > div > h2, .player--winner > div > p {
+    color: #ffe066;
+}
+
 .dice--hidden {
   display: none;
 }

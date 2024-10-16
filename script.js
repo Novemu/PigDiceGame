@@ -1,9 +1,9 @@
 "use strict";
 
-let scores = [0, 0];
-let currentScore = 0;
-let activePlayer = 0;
-let playing = true;
+let scores;;
+  let currentScore;
+  let activePlayer ;
+  let playing;
 
 let firstPlayerScore = document.querySelector(".score--0");
 let secondPlayerScore = document.querySelector(".score--1");
@@ -11,6 +11,33 @@ let newGame = document.querySelector(".btn--new");
 let rollDice = document.querySelector(".btn--roll");
 let hold = document.querySelector(".btn--hold");
 let dice = document.querySelector(".dice");
+
+
+
+function resetScores(){
+  document.querySelector(`.current--0`).textContent = `${currentScore}`; 
+  document.querySelector(`.score--0`).textContent = scores[0];
+  document.querySelector(`.current--1`).textContent = `${currentScore}`; 
+  document.querySelector(`.score--1`).textContent = scores[1];
+}
+
+function startGame(){
+  scores = [0, 0];
+  currentScore = 0;
+  activePlayer = 0;
+  playing = true;
+  document.querySelector(".player--0").classList.add("player--active");
+  document.querySelector(".player--0").classList.remove("player--winner--0");
+  document.querySelector(".player--0").classList.remove("player--winner");
+  document.querySelector(".player--1").classList.remove("player--winner--1");
+  document.querySelector(".player--1").classList.remove("player--winner");
+  document.querySelector(".player--1").classList.remove("player--active");
+  resetScores();
+  dice.classList.add("dice--hidden");
+
+}
+
+startGame();
 
 function swapActivePlayer() {
   document
@@ -30,6 +57,13 @@ function swapPlayer() {
     currentScore;
 
   swapActivePlayer();
+}
+
+function playerWin(){
+  document.querySelector(`.player--${activePlayer}`).classList.add(`player--winner--${activePlayer}`);
+  document.querySelector(`.player--${activePlayer}`).classList.add(`player--winner`);
+
+  playing = false;
 }
 
 rollDice.addEventListener("click", function () {
@@ -53,6 +87,12 @@ hold.addEventListener("click", function(){
     currentScore = 0;
     document.querySelector(`.current--${activePlayer}`).textContent = `${currentScore}`; 
     document.querySelector(`.score--${activePlayer}`).textContent = scores[activePlayer];
-    swapActivePlayer();
+
+    scores[activePlayer] >= 100 ? playerWin() : swapActivePlayer();
   }
 });
+
+newGame.addEventListener("click", function(){
+  startGame();
+
+})
